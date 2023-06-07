@@ -1,0 +1,20 @@
+<div class="row">
+  <app-image-add (uploadEvent)="upload($event)"></app-image-add>
+</div>
+
+<div class="card mt-3">
+  <div class="card-header">List of Files</div>
+    <div *ngFor="let image of displayDatas" class="list-group-item space">
+      <app-image-card>
+        <ng-container title>
+          <div>id: {{ image.id }}</div>
+          <div>name: {{ image.name }}</div>
+          <div>desc: {{ image.desc }}</div>
+        </ng-container>
+        <img image [src]="image.url" class="max-space">
+        <ng-container buttons>
+          <button (click)="delete(image.id)">Delete</button>
+        </ng-container>
+      </app-image-card>
+    </div>
+</div>
